@@ -1,0 +1,18 @@
+//2 Sum problem-   https://www.interviewbit.com/problems/2-sum/discussion/p/very-simple-o-n-c/421756/685/
+vector<int> Solution::twoSum(const vector<int> &A, int B) {
+    vector<int> vec;
+    int n=A.size();
+    
+    unordered_map<int,int> mp;
+    for(int i =0;i<n;i++){
+        if(mp.find(B-A[i])!=mp.end()){
+            vec.push_back(mp[B-A[i]]+1);
+            vec.push_back(i+1);
+            return vec;
+        }
+        else if(mp.find(A[i])==mp.end()){
+            mp[A[i]]=i;
+        }
+    }
+    return vec;
+}
